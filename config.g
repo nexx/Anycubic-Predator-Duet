@@ -32,7 +32,7 @@ M906 X2000.00 Y2000.00 Z2000.00 E500.00 I25	; Set motor currents (mA) and motor 
 M84 S30						; Set idle timeout
 
 ; Retraction
-;M207 S4.0 F5000 R-0.025 T2500 Z0.5		; Firmware retraction
+M207 S4.0 F5000 R-0.025 T2500 Z0.5		; Firmware retraction
 
 ; Axis Limits
 M208 Z0 S1					; Set minimum Z
