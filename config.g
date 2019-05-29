@@ -13,10 +13,10 @@ M586 P1 S0					; Disable FTP
 M586 P2 S0					; Disable Telnet
 
 ; Delta Settings
-;M665 L440.000 R227 H456.0 B185.0		; Set delta radius, diagonal rod length, printable radius and homed height
+;M665 L435.000 R227 H456.0 B185.0		; Set delta radius, diagonal rod length, printable radius and homed height
 ;M666 X0 Y0 Z0 A0.00 B0.00			; Put your endstop adjustments here, or let auto calibration find them
-M665 L440.000 R227.785 H454.655 B185.0 X0.443 Y0.196 Z0.000
-M666 X-0.199 Y0.495 Z-0.296 A0.05 B0.02
+M665 L435.000 R227.447 H460.389 B185.0 X0.124 Y-0.067 Z0.000
+M666 X-0.176 Y0.477 Z-0.301 A0.26 B-0.05
 
 ; Drives
 M569 P0 S0					; Drive 0 goes backwards
@@ -24,11 +24,11 @@ M569 P1 S0					; Drive 1 goes backwards
 M569 P2 S0					; Drive 2 goes backwards
 M569 P3 S1					; Drive 3 goes forwards
 M350 X16 Y16 Z16 E16 I1				; Configure microstepping with interpolation
-M92 X80.00 Y80.00 Z80.00 E415			; Set steps per mm
+M92 X200.00 Y200.00 Z200.00 E415		; Set steps per mm
 M566 X1000 Y1000 Z1000 E1000			; Set maximum instantaneous speed changes (mm/min)
 M203 X12000.00 Y12000.00 Z12000.00 E10000	; Set maximum speeds (mm/min)
 M201 X3000.00 Y3000.00 Z3000.00 E3000.00	; Set accelerations (mm/s^2)
-M906 X1000.00 Y1000.00 Z1000.00 E500.00 I60	; Set motor currents (mA) and motor idle factor in per cent
+M906 X2000.00 Y2000.00 Z2000.00 E500.00 I25	; Set motor currents (mA) and motor idle factor in per cent
 M84 S30						; Set idle timeout
 
 ; Retraction
@@ -45,7 +45,7 @@ M591 D0 P2 C4 S1				; Enable filament sensor on E1 endstop, high when filament p
 
 ; Z-Probe
 M558 P4 F120 T6000				; Set Z probe type to switch and the dive height + speeds
-G31 P500 X0 Y0 Z15.33				; Set Z probe trigger value, offset and trigger height
+G31 P500 X0 Y0 Z15.32				; Set Z probe trigger value, offset and trigger height
 M557 R170 S25					; Define mesh grid
 
 ; Heaters
@@ -73,5 +73,5 @@ M404 N1.75					; Define filament diameter for print monitor
 
 ; Miscellaneous
 ;M501						; Load saved parameters from config-override.g
-;G29 S1						; Load bed mesh
+G29 S1						; Load bed mesh
 T0						; Select first tool (Extruder 0)
