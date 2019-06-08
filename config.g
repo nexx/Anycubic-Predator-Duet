@@ -1,77 +1,75 @@
-; Configuration file for Duet WiFi (firmware version 1.21)
-; executed by the firmware on start-up
+; config.g
+; Called on power-up of the Duet Electronics
 
 ; General preferences
-G90						; Send absolute coordinates...
-M83						; ...but relative extruder moves
+G90								; Send absolute coordinates...
+M83								; ...but relative extruder moves
 
 ; Network
-M550 P"Predator"				; Set machine name
-M552 S1						; Enable network
-M586 P0 S1					; Enable HTTP
-M586 P1 S0					; Disable FTP
-M586 P2 S0					; Disable Telnet
+M550 P"Predator"						; Set machine name
+M552 S1								; Enable network
+M586 P0 S1							; Enable HTTP
+M586 P1 S0							; Disable FTP
+M586 P2 S0							; Disable Telnet
 
 ; Delta Settings
-;M665 L435.000 R227 H456.0 B185.0		; Set delta radius, diagonal rod length, printable radius and homed height
-;M666 X0 Y0 Z0 A0.00 B0.00			; Put your endstop adjustments here, or let auto calibration find them
-M665 L435.000 R227.447 H460.389 B185.0 X0.124 Y-0.067 Z0.000
-M666 X-0.176 Y0.477 Z-0.301 A0.26 B-0.05
+;M665 L450.550 R227 H400.0 B185.0				; Pre-calibrated delta values for arms, radius and homed height
+;M666 X0 Y0 Z0 A0.00 B0.00					; Pre-calibrated delta values for endstops and tilt
+M665 L450.550 R227.789 H398.466 B185.0 X0.379 Y0.229 Z0.000	; Calibrated delta values
+M666 X0.278 Y0.140 Z-0.418 A0.00 B0.00				; Calibrated delta values
 
 ; Drives
-M569 P0 S0					; Drive 0 goes backwards
-M569 P1 S0					; Drive 1 goes backwards
-M569 P2 S0					; Drive 2 goes backwards
-M569 P3 S1					; Drive 3 goes forwards
-M350 X16 Y16 Z16 E16 I1				; Configure microstepping with interpolation
-M92 X200.00 Y200.00 Z200.00 E415		; Set steps per mm
-M566 X1000 Y1000 Z1000 E1000			; Set maximum instantaneous speed changes (mm/min)
-M203 X12000.00 Y12000.00 Z12000.00 E10000	; Set maximum speeds (mm/min)
-M201 X3000.00 Y3000.00 Z3000.00 E3000.00	; Set accelerations (mm/s^2)
-M906 X2000.00 Y2000.00 Z2000.00 E500.00 I25	; Set motor currents (mA) and motor idle factor in per cent
-M84 S30						; Set idle timeout
+M569 P0 S0							; Drive 0 goes backwards
+M569 P1 S0							; Drive 1 goes backwards
+M569 P2 S0							; Drive 2 goes backwards
+M569 P3 S1							; Drive 3 goes forwards
+M350 X16 Y16 Z16 E16 I1						; Configure microstepping with interpolation
+M92 X200.00 Y200.00 Z200.00 E415				; Set steps per mm
+M566 X1000 Y1000 Z1000 E1000					; Set maximum instantaneous speed changes (mm/min)
+M203 X12000.00 Y12000.00 Z12000.00 E10000			; Set maximum speeds (mm/min)
+M201 X3000.00 Y3000.00 Z3000.00 E3000.00			; Set accelerations (mm/s^2)
+M906 X2000.00 Y2000.00 Z2000.00 E500.00 I25			; Set motor currents (mA) and motor idle factor in per cent
+M84 S30								; Set idle timeout
 
 ; Retraction
-M207 S4.0 F5000 R-0.025 T2500 Z0.5		; Firmware retraction
+M207 S4.0 F5000 R-0.025 T2500 Z0.5				; Firmware retraction
 
 ; Axis Limits
-M208 Z0 S1					; Set minimum Z
+M208 Z0 S1							; Set minimum Z
 
 ; Endstops
-M574 X2 Y2 Z2 S1				; Set active high endstops
+M574 X2 Y2 Z2 S1						; Set active high endstops
 
 ; Filament Run-out Sensor
-M591 D0 P2 C4 S1				; Enable filament sensor on E1 endstop, high when filament present
+M591 D0 P2 C4 S1						; Enable filament sensor on E1 endstop, high when filament present
 
-; Z-Probe
-M558 P4 F120 T6000				; Set Z probe type to switch and the dive height + speeds
-G31 P500 X0 Y0 Z15.32				; Set Z probe trigger value, offset and trigger height
-M557 R170 S25					; Define mesh grid
+; Smart Effector Probe
+M558 P8 R0.4 F1200 H10						; Set Z probe type to smart effector, dive height + speeds
+G31 P100 X0 Y0 Z-0.187						; Set Z probe trigger value, offset and trigger height
+M557 R170 S25							; Define mesh grid
 
 ; Heaters
-M307 H0 A152.5 C597.6 D1.1 S1.00 V24.1 B0	; PID Tuning for H0, Heated Bed
-M305 P0 T100000 B4138 C0 R4700			; Set thermistor + ADC parameters for heater 0
-M143 H0 S120					; Set temperature limit for heater 0 to 120C
-M307 H1 A527.2 C137.0 D6.3 S1.00 V24.0 B0	; PID Tuning for H1, Extruder 0
-M305 P1 T100000 B4300 C0 R4700			; Set thermistor + ADC parameters for heater 1
-M143 H1 S240					; Set temperature limit for heater 1 to 240C
+M307 H0 A152.5 C597.6 D1.1 S1.00 V24.1 B0			; PID Tuning for H0, Heated Bed
+M305 P0 T100000 B4138 C0 R4700					; Set thermistor + ADC parameters for heater 0
+M143 H0 S120							; Set temperature limit for heater 0 to 120C
+M307 H1 A583.2 C269.7 D4.2 S1.00 V24.0 B0			; PID Tuning for H1, Extruder 0
+M305 P1 B4725 C7.060000e-8					; Set thermistor + ADC parameters for heater 1 (E3D Cartridge Thermistor)
+M143 H1 S285							; Set temperature limit for heater 1 to 285C
 
 ; Fans
-M106 P0 S0 I0 F500 H-1				; Part Cooling Fan. Manual control.
-M106 P1 S1 I0 F500 H1 T45			; Hotend Heatsink Fan. Thermostatic control, max RPM at 45C.
-M106 P2 T25:50 H100:101:102 F100		; Duet Electronics Fan. Thermostatic control, turn on at 25C, max RPM at 65C.
+;M106 P0 S0 I0 F500 H-1						; Part Cooling via BerdAir pump. Manual control. Currently Unconfigured
+M106 P1 S1 I0 F500 H1 T45					; Hotend Heatsink Fan. Thermostatic control, max RPM at 45C
 
 ; Tools
-M563 P0 D0 H1					; Define tool 0
-G10 P0 X0 Y0 Z0					; Set tool 0 axis offsets
-G10 P0 R0 S0					; Set initial tool 0 active and standby temperatures to 0C
+M563 P0 D0 H1							; Define tool 0
+G10 P0 X0 Y0 Z0							; Set tool 0 axis offsets
+G10 P0 R0 S0							; Set initial tool 0 active and standby temperatures to 0C
 
 ; Additional Settings
-;M572 D0 S0.1					; Pressure Advance
-M404 N1.75					; Define filament diameter for print monitor
-;M592 D0 A0.07772 B-0.00029			; Nonlinear extrusion. Set parameters for extruder drive 0
+;M572 D0 S0.1							; Pressure Advance
+M404 N1.75							; Define filament diameter for print monitor
+;M592 D0 A0.07772 B-0.00029					; Nonlinear extrusion. Set parameters for extruder drive 0
 
 ; Miscellaneous
-;M501						; Load saved parameters from config-override.g
-G29 S1						; Load bed mesh
-T0						; Select first tool (Extruder 0)
+G29 S1								; Load bed mesh
+T0								; Select first tool (Extruder 0)
