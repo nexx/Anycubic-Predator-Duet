@@ -57,7 +57,7 @@ M305 P1 B4725 C7.060000e-8					; Set thermistor + ADC parameters for heater 1 (E
 M143 H1 S285							; Set temperature limit for heater 1 to 285C
 
 ; Fans
-;M106 P0 S0 I0 F500 H-1						; Part Cooling via BerdAir pump. Manual control. Currently Unconfigured
+M106 P0 S0 I0 F25000 H-1 L0.35 B1.5				; Part Cooling via BerdAir pump. Manual control. Blip time of 1.5s to heat PTC Thermistor
 M106 P1 S1 I0 F500 H1 T45					; Hotend Heatsink Fan. Thermostatic control, max RPM at 45C
 
 ; Tools
