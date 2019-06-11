@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<profile name="Predator DuetWifi" version="2019-05-29 21:09:01" app="S3D-Software 4.1.2">
+<profile name="Predator DuetWifi" version="2019-06-11 18:38:32" app="S3D-Software 4.1.2">
   <baseProfile>Default</baseProfile>
   <printMaterial>PLA</printMaterial>
-  <printQuality>0.10 mm</printQuality>
+  <printQuality>0.20 mm</printQuality>
   <printExtruders></printExtruders>
   <extruder name="Primary Extruder">
     <toolheadNumber>0</toolheadNumber>
@@ -21,9 +21,9 @@
     <wipeDistance>5</wipeDistance>
   </extruder>
   <primaryExtruder>0</primaryExtruder>
-  <layerHeight>0.1</layerHeight>
-  <topSolidLayers>10</topSolidLayers>
-  <bottomSolidLayers>7</bottomSolidLayers>
+  <layerHeight>0.2</layerHeight>
+  <topSolidLayers>5</topSolidLayers>
+  <bottomSolidLayers>4</bottomSolidLayers>
   <perimeterOutlines>2</perimeterOutlines>
   <printPerimetersInsideOut>1</printPerimetersInsideOut>
   <startPointOption>3</startPointOption>
@@ -31,7 +31,7 @@
   <startPointOriginY>0</startPointOriginY>
   <sequentialIslands>1</sequentialIslands>
   <spiralVaseMode>0</spiralVaseMode>
-  <firstLayerHeightPercentage>200</firstLayerHeightPercentage>
+  <firstLayerHeightPercentage>100</firstLayerHeightPercentage>
   <firstLayerWidthPercentage>100</firstLayerWidthPercentage>
   <firstLayerUnderspeed>0.5</firstLayerUnderspeed>
   <useRaft>0</useRaft>
@@ -44,7 +44,7 @@
   <aboveRaftSpeedMultiplier>0.3</aboveRaftSpeedMultiplier>
   <useSkirt>1</useSkirt>
   <skirtExtruder>0</skirtExtruder>
-  <skirtLayers>1</skirtLayers>
+  <skirtLayers>2</skirtLayers>
   <skirtOutlines>5</skirtOutlines>
   <skirtOffset>5</skirtOffset>
   <usePrimePillar>0</usePrimePillar>
@@ -62,7 +62,7 @@
   <infillExtruder>0</infillExtruder>
   <internalInfillPattern>Rectilinear</internalInfillPattern>
   <externalInfillPattern>Rectilinear</externalInfillPattern>
-  <infillPercentage>10</infillPercentage>
+  <infillPercentage>17</infillPercentage>
   <outlineOverlapPercentage>30</outlineOverlapPercentage>
   <infillExtrusionWidthPercentage>100</infillExtrusionWidthPercentage>
   <minInfillLength>5</minInfillLength>
@@ -90,8 +90,8 @@
     <temperatureNumber>0</temperatureNumber>
     <isHeatedBed>0</isHeatedBed>
     <stabilizeAtStartup>1</stabilizeAtStartup>
-    <setpoint layer="1" temperature="200"/>
-    <setpoint layer="2" temperature="190"/>
+    <setpoint layer="1" temperature="190"/>
+    <setpoint layer="2" temperature="185"/>
   </temperatureController>
   <temperatureController name="Heated Bed">
     <temperatureNumber>0</temperatureNumber>
@@ -101,16 +101,16 @@
   </temperatureController>
   <fanSpeed>
     <setpoint layer="1" speed="0"/>
-    <setpoint layer="2" speed="90"/>
+    <setpoint layer="2" speed="50"/>
   </fanSpeed>
   <blipFanToFullPower>0</blipFanToFullPower>
   <adjustSpeedForCooling>1</adjustSpeedForCooling>
   <minSpeedLayerTime>20</minSpeedLayerTime>
   <minCoolingSpeedSlowdown>25</minCoolingSpeedSlowdown>
-  <increaseFanForCooling>0</increaseFanForCooling>
+  <increaseFanForCooling>1</increaseFanForCooling>
   <minFanLayerTime>25</minFanLayerTime>
-  <maxCoolingFanSpeed>100</maxCoolingFanSpeed>
-  <increaseFanForBridging>0</increaseFanForBridging>
+  <maxCoolingFanSpeed>75</maxCoolingFanSpeed>
+  <increaseFanForBridging>1</increaseFanForBridging>
   <bridgingFanSpeed>100</bridgingFanSpeed>
   <use5D>1</use5D>
   <relativeEdistances>1</relativeEdistances>
@@ -124,11 +124,11 @@
   <gcodeZoffset>0</gcodeZoffset>
   <overrideMachineDefinition>1</overrideMachineDefinition>
   <machineTypeOverride>1</machineTypeOverride>
-  <strokeXoverride>260</strokeXoverride>
-  <strokeYoverride>260</strokeYoverride>
-  <strokeZoverride>450</strokeZoverride>
-  <originOffsetXoverride>130</originOffsetXoverride>
-  <originOffsetYoverride>130</originOffsetYoverride>
+  <strokeXoverride>261.6</strokeXoverride>
+  <strokeYoverride>261.6</strokeYoverride>
+  <strokeZoverride>395</strokeZoverride>
+  <originOffsetXoverride>130.8</originOffsetXoverride>
+  <originOffsetYoverride>130.8</originOffsetYoverride>
   <originOffsetZoverride>0</originOffsetZoverride>
   <homeXdirOverride>0</homeXdirOverride>
   <homeYdirOverride>0</homeYdirOverride>
@@ -143,11 +143,11 @@
   <baudRateOverride>115200</baudRateOverride>
   <overridePrinterModels>0</overridePrinterModels>
   <printerModelsOverride></printerModelsOverride>
-  <startingGcode>M572 D0 S0.1			; Set pressure advance,M104 S[extruder0_temperature] T0	; Heat nozzle,M190 S[bed0_temperature] T0		; Heat bed and wait,M109 S[extruder0_temperature] T0	; Wait for nozzle,G28 			; Home all,G29 S1			; Load bed mesh</startingGcode>
+  <startingGcode>; Home the effector,G28,,; Heat bed to temp &amp; nozzle to 130C,M104 S130 T0,M190 S[bed0_temperature] T0,M109 S130 T0,,; Run delta auto-calibration,M291 P&quot;Please ensure the nozzle is clean and click OK to continue.&quot; S2,G32,,; Heat nozzle to print temperature,M109 S[extruder0_temperature] T0,,; Load bed mesh, pressure advance and continue the print,G29 S1,;M572 D0 S0.1</startingGcode>
   <layerChangeGcode></layerChangeGcode>
   <retractionGcode></retractionGcode>
   <toolChangeGcode></toolChangeGcode>
-  <endingGcode>G1 E-5.0 F2000			; Retract filament to avoid oozing,M104 S0			; Turn off extruder heater,M140 S0			; Turn off heated bed,G28			; Move effector to home,M107			; Turn off part cooling fan,M572 D0 S0.0			; Disable pressure advance</endingGcode>
+  <endingGcode>; Retract filament to avoid oozing,G1 E-5.0 F2000,,; Disable heaters &amp; fans,M104 S0,M140 S0,M107,,; Move effector to home,G28,,; Disable pressure advance,M572 D0 S0.0</endingGcode>
   <exportFileFormat>gcode</exportFileFormat>
   <celebration>0</celebration>
   <celebrationSong>Funky Town</celebrationSong>
@@ -165,9 +165,9 @@
   <useFixedBridgingAngle>0</useFixedBridgingAngle>
   <fixedBridgingAngle>0</fixedBridgingAngle>
   <applyBridgingToPerimeters>0</applyBridgingToPerimeters>
-  <filamentDiameters>1.75|1.75</filamentDiameters>
-  <filamentPricesPerKg>18|20</filamentPricesPerKg>
-  <filamentDensities>1.25|1.25</filamentDensities>
+  <filamentDiameters>1.75|1.75|1.75|1.75|1.75|1.75</filamentDiameters>
+  <filamentPricesPerKg>46|46|46|46|46|46</filamentPricesPerKg>
+  <filamentDensities>1.25|1.25|1.25|1.25|1.25|1.25</filamentDensities>
   <useMinPrintHeight>0</useMinPrintHeight>
   <minPrintHeight>80</minPrintHeight>
   <useMaxPrintHeight>0</useMaxPrintHeight>
@@ -199,7 +199,7 @@
     <layerHeight>0.1</layerHeight>
     <topSolidLayers>10</topSolidLayers>
     <bottomSolidLayers>7</bottomSolidLayers>
-    <skirtLayers>1</skirtLayers>
+    <skirtLayers>4</skirtLayers>
     <infillPercentage>10</infillPercentage>
     <supportInfillPercentage>30</supportInfillPercentage>
     <firstLayerHeightPercentage>200</firstLayerHeightPercentage>
@@ -208,7 +208,7 @@
     <layerHeight>0.15</layerHeight>
     <topSolidLayers>6</topSolidLayers>
     <bottomSolidLayers>4</bottomSolidLayers>
-    <skirtLayers>1</skirtLayers>
+    <skirtLayers>3</skirtLayers>
     <infillPercentage>17</infillPercentage>
     <firstLayerHeightPercentage>135</firstLayerHeightPercentage>
     <supportInfillPercentage>30</supportInfillPercentage>
@@ -217,7 +217,7 @@
     <layerHeight>0.2</layerHeight>
     <topSolidLayers>5</topSolidLayers>
     <bottomSolidLayers>4</bottomSolidLayers>
-    <skirtLayers>1</skirtLayers>
+    <skirtLayers>2</skirtLayers>
     <infillPercentage>17</infillPercentage>
     <supportInfillPercentage>30</supportInfillPercentage>
     <firstLayerHeightPercentage>100</firstLayerHeightPercentage>
@@ -226,23 +226,23 @@
     <layerHeight>0.25</layerHeight>
     <topSolidLayers>4</topSolidLayers>
     <bottomSolidLayers>3</bottomSolidLayers>
-    <skirtLayers>3</skirtLayers>
+    <skirtLayers>2</skirtLayers>
     <infillPercentage>20</infillPercentage>
     <firstLayerHeightPercentage>100</firstLayerHeightPercentage>
     <supportInfillPercentage>30</supportInfillPercentage>
   </autoConfigureQuality>
   <autoConfigureMaterial name="PLA">
-    <increaseFanForCooling>0</increaseFanForCooling>
+    <increaseFanForCooling>1</increaseFanForCooling>
     <minFanLayerTime>25</minFanLayerTime>
-    <maxCoolingFanSpeed>100</maxCoolingFanSpeed>
-    <increaseFanForBridging>0</increaseFanForBridging>
+    <maxCoolingFanSpeed>75</maxCoolingFanSpeed>
+    <increaseFanForBridging>1</increaseFanForBridging>
     <bridgingFanSpeed>100</bridgingFanSpeed>
     <temperatureController name="Primary Extruder">
       <temperatureNumber>0</temperatureNumber>
       <isHeatedBed>0</isHeatedBed>
       <stabilizeAtStartup>1</stabilizeAtStartup>
-      <setpoint layer="1" temperature="200"/>
-      <setpoint layer="2" temperature="190"/>
+      <setpoint layer="1" temperature="190"/>
+      <setpoint layer="2" temperature="185"/>
     </temperatureController>
     <temperatureController name="Heated Bed">
       <temperatureNumber>0</temperatureNumber>
@@ -253,7 +253,7 @@
     <globalExtrusionMultiplier>1</globalExtrusionMultiplier>
     <fanSpeed>
       <setpoint layer="1" speed="0"/>
-      <setpoint layer="2" speed="90"/>
+      <setpoint layer="2" speed="50"/>
     </fanSpeed>
     <defaultSpeed>6000</defaultSpeed>
     <outlineUnderspeed>0.5</outlineUnderspeed>
