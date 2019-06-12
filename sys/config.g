@@ -15,8 +15,8 @@ M586 P2 S0							; Disable Telnet
 ; Delta Settings
 ;M665 L450.550 R227 H400.0 B185.0				; Pre-calibrated delta values for arms, radius and homed height
 ;M666 X0 Y0 Z0 A0.00 B0.00					; Pre-calibrated delta values for endstops and tilt
-M665 L450.550 R227.789 H398.466 B185.0 X0.379 Y0.229 Z0.000	; Calibrated delta values
-M666 X0.278 Y0.140 Z-0.418 A0.00 B0.00				; Calibrated delta values
+M665 L450.550 R228.059 H398.081 B185.0 X0.369 Y0.220 Z0.000	; Calibrated delta values
+M666 X0.263 Y0.136 Z-0.400 A0.00 B0.00				; Calibrated delta values
 
 ; Drives
 M569 P0 S0							; Drive 0 goes backwards
@@ -24,7 +24,7 @@ M569 P1 S0							; Drive 1 goes backwards
 M569 P2 S0							; Drive 2 goes backwards
 M569 P3 S1							; Drive 3 goes forwards
 M350 X16 Y16 Z16 E16 I1						; Configure microstepping with interpolation
-M92 X200.00 Y200.00 Z200.00 E415				; Set steps per mm
+M92 X160.00 Y160.00 Z160.00 E415				; Set steps per mm
 M566 X1000 Y1000 Z1000 E1000					; Set maximum instantaneous speed changes (mm/min)
 M203 X12000.00 Y12000.00 Z12000.00 E10000			; Set maximum speeds (mm/min)
 M201 X3000.00 Y3000.00 Z3000.00 E3000.00			; Set accelerations (mm/s^2)
@@ -57,7 +57,7 @@ M305 P1 B4725 C7.060000e-8					; Set thermistor + ADC parameters for heater 1 (E
 M143 H1 S285							; Set temperature limit for heater 1 to 285C
 
 ; Fans
-M106 P0 S0 I0 F25000 H-1 L0.35 B1.5				; Part Cooling via BerdAir pump. Manual control. Blip time of 1.5s to heat PTC Thermistor
+M106 P0 S0 I0 F25000 H-1 L0.35 B2.5				; Part Cooling via BerdAir pump. Manual control. Blip time of 2.5s to heat PTC Thermistor
 M106 P1 S1 I0 F500 H1 T45					; Hotend Heatsink Fan. Thermostatic control, max RPM at 45C
 
 ; Tools
