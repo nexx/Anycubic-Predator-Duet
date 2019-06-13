@@ -19,3 +19,7 @@ Design by Simon Davie (NexxCat)
 ## PredatorBerdAir*.stl
 Design by Simon Davie (NexxCat)  
 [https://www.thingiverse.com/thing:3688860](https://www.thingiverse.com/thing:3688860)
+
+## PredatorFilamentGuide.stl
+Design by Simon Davie (NexxCat)  
+[https://www.thingiverse.com/thing:3689895](https://www.thingiverse.com/thing:3689895)
