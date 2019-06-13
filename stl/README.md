@@ -15,3 +15,7 @@ Design by Michael Rackow (mrac1)
 ## Predator80mmFanAdapter.stl
 Design by Simon Davie (NexxCat)  
 [https://www.thingiverse.com/thing:3685343](https://www.thingiverse.com/thing:3685343)
+
+## PredatorBerdAir*.stl
+Design by Simon Davie (NexxCat)  
+[https://www.thingiverse.com/thing:3688860](https://www.thingiverse.com/thing:3688860)
