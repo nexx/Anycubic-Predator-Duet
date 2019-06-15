@@ -1,3 +1,4 @@
 *.duetbackup
 config.g.bak
+resurrect.g
 *.bin
