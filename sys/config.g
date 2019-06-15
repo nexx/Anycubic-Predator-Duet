@@ -15,8 +15,8 @@ M586 P2 S0							; Disable Telnet
 ; Delta Settings
 ;M665 L450.550 R227 H400.0 B185.0				; Pre-calibrated delta values for arms, radius and homed height
 ;M666 X0 Y0 Z0 A0.00 B0.00					; Pre-calibrated delta values for endstops and tilt
-M665 L450.550 R228.059 H398.081 B185.0 X0.369 Y0.220 Z0.000	; Calibrated delta values
-M666 X0.263 Y0.136 Z-0.400 A0.00 B0.00				; Calibrated delta values
+M665 L450.550 R227.958 H398.309 B185.0 X0.375 Y0.215 Z0.000	; Calibrated delta values
+M666 X0.262 Y0.173 Z-0.435 A0.00 B0.00				; Calibrated delta values
 
 ; Drives
 M569 P0 S0							; Drive 0 goes backwards
@@ -24,11 +24,11 @@ M569 P1 S0							; Drive 1 goes backwards
 M569 P2 S0							; Drive 2 goes backwards
 M569 P3 S1							; Drive 3 goes forwards
 M350 X16 Y16 Z16 E16 I1						; Configure microstepping with interpolation
-M92 X160.00 Y160.00 Z160.00 E415				; Set steps per mm
-M566 X1000 Y1000 Z1000 E1000					; Set maximum instantaneous speed changes (mm/min)
-M203 X12000.00 Y12000.00 Z12000.00 E10000			; Set maximum speeds (mm/min)
-M201 X3000.00 Y3000.00 Z3000.00 E3000.00			; Set accelerations (mm/s^2)
-M906 X2000.00 Y2000.00 Z2000.00 E500.00 I25			; Set motor currents (mA) and motor idle factor in per cent
+M92 X160 Y160 Z160 E415						; Set steps per mm
+M203 X12000 Y12000 Z8000 E6000					; Set maximum speeds (mm/min)
+M201 X6000 Y6000 Z1500 E6000					; Set accelerations (mm/s^2)
+M566 X1200 Y1200 Z1200 E6000					; Set maximum instantaneous speed changes (mm/min)
+M906 X1920 Y1920 Z1920 E500 I20					; Set motor currents (mA) and motor idle factor in per cent
 M84 S30								; Set idle timeout
 
 ; Retraction
@@ -66,7 +66,7 @@ G10 P0 X0 Y0 Z0							; Set tool 0 axis offsets
 G10 P0 R0 S0							; Set initial tool 0 active and standby temperatures to 0C
 
 ; Additional Settings
-;M572 D0 S0.1							; Pressure Advance
+M572 D0 S0.1							; Pressure Advance
 M404 N1.75							; Define filament diameter for print monitor
 ;M592 D0 A0.07772 B-0.00029					; Nonlinear extrusion. Set parameters for extruder drive 0
 
