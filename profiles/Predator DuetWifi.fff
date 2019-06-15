@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<profile name="Predator DuetWifi" version="2019-06-11 18:38:32" app="S3D-Software 4.1.2">
+<profile name="Predator DuetWifi" version="2019-06-15 23:07:37" app="S3D-Software 4.1.2">
   <baseProfile>Default</baseProfile>
   <printMaterial>PLA</printMaterial>
   <printQuality>0.20 mm</printQuality>
@@ -17,7 +17,7 @@
     <retractionSpeed>6000</retractionSpeed>
     <useCoasting>0</useCoasting>
     <coastingDistance>0.3</coastingDistance>
-    <useWipe>1</useWipe>
+    <useWipe>0</useWipe>
     <wipeDistance>5</wipeDistance>
   </extruder>
   <primaryExtruder>0</primaryExtruder>
@@ -28,7 +28,7 @@
   <printPerimetersInsideOut>1</printPerimetersInsideOut>
   <startPointOption>3</startPointOption>
   <startPointOriginX>0</startPointOriginX>
-  <startPointOriginY>0</startPointOriginY>
+  <startPointOriginY>400</startPointOriginY>
   <sequentialIslands>1</sequentialIslands>
   <spiralVaseMode>0</spiralVaseMode>
   <firstLayerHeightPercentage>100</firstLayerHeightPercentage>
@@ -101,17 +101,17 @@
   </temperatureController>
   <fanSpeed>
     <setpoint layer="1" speed="0"/>
-    <setpoint layer="2" speed="50"/>
+    <setpoint layer="2" speed="35"/>
   </fanSpeed>
   <blipFanToFullPower>0</blipFanToFullPower>
   <adjustSpeedForCooling>1</adjustSpeedForCooling>
   <minSpeedLayerTime>20</minSpeedLayerTime>
   <minCoolingSpeedSlowdown>25</minCoolingSpeedSlowdown>
-  <increaseFanForCooling>1</increaseFanForCooling>
+  <increaseFanForCooling>0</increaseFanForCooling>
   <minFanLayerTime>25</minFanLayerTime>
-  <maxCoolingFanSpeed>75</maxCoolingFanSpeed>
+  <maxCoolingFanSpeed>40</maxCoolingFanSpeed>
   <increaseFanForBridging>1</increaseFanForBridging>
-  <bridgingFanSpeed>100</bridgingFanSpeed>
+  <bridgingFanSpeed>50</bridgingFanSpeed>
   <use5D>1</use5D>
   <relativeEdistances>1</relativeEdistances>
   <allowEaxisZeroing>1</allowEaxisZeroing>
@@ -143,16 +143,16 @@
   <baudRateOverride>115200</baudRateOverride>
   <overridePrinterModels>0</overridePrinterModels>
   <printerModelsOverride></printerModelsOverride>
-  <startingGcode>; Home the effector,G28,,; Heat bed to temp &amp; nozzle to 130C,M104 S130 T0,M190 S[bed0_temperature] T0,M109 S130 T0,,; Run delta auto-calibration,M291 P&quot;Please ensure the nozzle is clean and click OK to continue.&quot; S2,G32,,; Heat nozzle to print temperature,M109 S[extruder0_temperature] T0,,; Load bed mesh, pressure advance and continue the print,G29 S1,;M572 D0 S0.1</startingGcode>
+  <startingGcode>; Home the effector,G28,,; Heat bed to temp &amp; nozzle to 130C,M104 S130 T0,M190 S[bed0_temperature] T0,M109 S130 T0,,; Run delta auto-calibration,M291 P&quot;Please ensure the nozzle is clean and click OK to continue.&quot; S2,G32,,; Heat nozzle to print temperature,M109 S[extruder0_temperature] T0,,; Load bed mesh &amp;  pressure advance settings,G29 S1,M572 D0 S0.1</startingGcode>
   <layerChangeGcode></layerChangeGcode>
   <retractionGcode></retractionGcode>
   <toolChangeGcode></toolChangeGcode>
-  <endingGcode>; Retract filament to avoid oozing,G1 E-5.0 F2000,,; Disable heaters &amp; fans,M104 S0,M140 S0,M107,,; Move effector to home,G28,,; Disable pressure advance,M572 D0 S0.0</endingGcode>
+  <endingGcode>; Retract filament to avoid oozing,G1 E-5.0 F2000,,; Disable heaters,M104 S0,M140 S0,,; Move effector to home,G28,,; Disable part cooling,M107,,; Disable pressure advance,M572 D0 S0.0</endingGcode>
   <exportFileFormat>gcode</exportFileFormat>
   <celebration>0</celebration>
   <celebrationSong>Funky Town</celebrationSong>
   <postProcessing>{REPLACE &quot;G1 E-1.0000 F6000\n&quot; &quot;G10\n&quot;},{REPLACE &quot;G1 E1.0000 F6000\n&quot; &quot;G11\n&quot;}</postProcessing>
-  <defaultSpeed>6000</defaultSpeed>
+  <defaultSpeed>3600</defaultSpeed>
   <outlineUnderspeed>0.5</outlineUnderspeed>
   <solidInfillUnderspeed>0.8</solidInfillUnderspeed>
   <supportUnderspeed>0.8</supportUnderspeed>
@@ -169,9 +169,9 @@
   <filamentPricesPerKg>46|46|46|46|46|46</filamentPricesPerKg>
   <filamentDensities>1.25|1.25|1.25|1.25|1.25|1.25</filamentDensities>
   <useMinPrintHeight>0</useMinPrintHeight>
-  <minPrintHeight>80</minPrintHeight>
+  <minPrintHeight>0</minPrintHeight>
   <useMaxPrintHeight>0</useMaxPrintHeight>
-  <maxPrintHeight>0.2</maxPrintHeight>
+  <maxPrintHeight>0</maxPrintHeight>
   <useDiaphragm>0</useDiaphragm>
   <diaphragmLayerInterval>20</diaphragmLayerInterval>
   <robustSlicing>1</robustSlicing>
@@ -232,11 +232,11 @@
     <supportInfillPercentage>30</supportInfillPercentage>
   </autoConfigureQuality>
   <autoConfigureMaterial name="PLA">
-    <increaseFanForCooling>1</increaseFanForCooling>
+    <increaseFanForCooling>0</increaseFanForCooling>
     <minFanLayerTime>25</minFanLayerTime>
-    <maxCoolingFanSpeed>75</maxCoolingFanSpeed>
+    <maxCoolingFanSpeed>40</maxCoolingFanSpeed>
     <increaseFanForBridging>1</increaseFanForBridging>
-    <bridgingFanSpeed>100</bridgingFanSpeed>
+    <bridgingFanSpeed>50</bridgingFanSpeed>
     <temperatureController name="Primary Extruder">
       <temperatureNumber>0</temperatureNumber>
       <isHeatedBed>0</isHeatedBed>
@@ -253,9 +253,9 @@
     <globalExtrusionMultiplier>1</globalExtrusionMultiplier>
     <fanSpeed>
       <setpoint layer="1" speed="0"/>
-      <setpoint layer="2" speed="50"/>
+      <setpoint layer="2" speed="35"/>
     </fanSpeed>
-    <defaultSpeed>6000</defaultSpeed>
+    <defaultSpeed>3600</defaultSpeed>
     <outlineUnderspeed>0.5</outlineUnderspeed>
     <solidInfillUnderspeed>0.8</solidInfillUnderspeed>
     <supportUnderspeed>0.8</supportUnderspeed>
