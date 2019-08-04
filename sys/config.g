@@ -15,16 +15,16 @@ M586 P2 S0							; Disable Telnet
 ; Delta Settings
 ;M665 L450.550 R227 H400.0 B185.0				; Pre-calibrated delta values for arms, radius and homed height
 ;M666 X0 Y0 Z0 A0.00 B0.00					; Pre-calibrated delta values for endstops and tilt
-M665 L450.550 R227.958 H398.309 B185.0 X0.375 Y0.215 Z0.000	; Calibrated delta values
-M666 X0.262 Y0.173 Z-0.435 A0.00 B0.00				; Calibrated delta values
+M665 L450.550 R228.074 H406.820 B185.0 X0.372 Y0.220 Z0.000	; Calibrated delta values
+M666 X0.234 Y0.184 Z-0.417 A0.00 B0.00				; Calibrated delta values
 
 ; Drives
 M569 P0 S0							; Drive 0 goes backwards
 M569 P1 S0							; Drive 1 goes backwards
 M569 P2 S0							; Drive 2 goes backwards
 M569 P3 S1							; Drive 3 goes forwards
-M350 X16 Y16 Z16 E16 I1						; Configure microstepping with interpolation
 M92 X160 Y160 Z160 E415						; Set steps per mm
+M350 X16 Y16 Z16 E16 I1						; Configure microstepping with interpolation
 M203 X12000 Y12000 Z8000 E6000					; Set maximum speeds (mm/min)
 M201 X6000 Y6000 Z1500 E6000					; Set accelerations (mm/s^2)
 M566 X1200 Y1200 Z1200 E6000					; Set maximum instantaneous speed changes (mm/min)
@@ -32,7 +32,7 @@ M906 X1920 Y1920 Z1920 E500 I20					; Set motor currents (mA) and motor idle fac
 M84 S30								; Set idle timeout
 
 ; Retraction
-M207 S4.0 F5000 R-0.025 T2500 Z0.5				; Firmware retraction
+M207 S2.0 F5000 R-0.025 T2500 Z0.5				; Firmware retraction
 
 ; Axis Limits
 M208 Z0 S1							; Set minimum Z
@@ -52,7 +52,7 @@ M557 R170 S25							; Define mesh grid
 M307 H0 A152.5 C597.6 D1.1 S1.00 V24.1 B0			; PID Tuning for H0, Heated Bed
 M305 P0 T100000 B4138 C0 R4700					; Set thermistor + ADC parameters for heater 0
 M143 H0 S120							; Set temperature limit for heater 0 to 120C
-M307 H1 A583.2 C269.7 D4.2 S1.00 V24.0 B0			; PID Tuning for H1, Extruder 0
+M307 H1 A703.6 C251.4 D5.2 S1.00 V24.0 B0			; PID Tuning for H1, Extruder 0
 M305 P1 B4725 C7.060000e-8					; Set thermistor + ADC parameters for heater 1 (E3D Cartridge Thermistor)
 M143 H1 S285							; Set temperature limit for heater 1 to 285C
 
