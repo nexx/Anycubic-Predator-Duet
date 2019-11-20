@@ -15,25 +15,22 @@ M586 P2 S0							; Disable Telnet
 ; Delta Settings
 ;M665 L450.550 R227 H400.0 B185.0				; Pre-calibrated delta values for arms, radius and homed height
 ;M666 X0 Y0 Z0 A0.00 B0.00					; Pre-calibrated delta values for endstops and tilt
-M665 L450.550 R228.076 H407.013 B185.0 X0.407 Y0.355 Z0.000	; Calibrated delta values
-M666 X0.077 Y0.351 Z-0.428 A0.00 B0.00				; Calibrated delta values
+M665 L450.550 R227.853 H406.707 B185.0 X0.431 Y0.358 Z0.000	; Calibrated delta values
+M666 X0.085 Y0.304 Z-0.389 A0.00 B0.00				; Calibrated delta values
 
 ; Drives
-M569 P0 S0							; Drive 0 goes backwards
-M569 P1 S0							; Drive 1 goes backwards
-M569 P2 S0							; Drive 2 goes backwards
+M569 P0 S1							; Drive 0 goes forwards
+M569 P1 S1							; Drive 1 goes forwards
+M569 P2 S1							; Drive 2 goes forwards
 M569 P3 S1							; Drive 3 goes forwards
-M92 X160 Y160 Z160 E415						; Set steps per mm
-M350 X16 Y16 Z16 E16 I1						; Configure micro-stepping with interpolation for X, Y & Z
+M92 X80 Y80 Z80 E415						; Set steps per mm
+M350 X16 Y16 Z16 I1						; Configure micro-stepping with interpolation for X, Y & Z
 M350 E16 I0							; Configure micro-stepping without interpolation for E
 M203 X18000 Y18000 Z18000 E6000					; Set maximum speeds (mm/min)
 M201 X6000 Y6000 Z1500 E6000					; Set accelerations (mm/s^2)
 M566 X1200 Y1200 Z1200 E6000					; Set maximum instantaneous speed changes (mm/min)
-M906 X1600 Y1600 Z1600 E500 I35					; Set motor currents (mA) and motor idle factor in per cent
+M906 X1600 Y1600 Z1600 E500 I25					; Set motor currents (mA) and motor idle factor in per cent
 M84 S30								; Set idle timeout
-
-; Retraction
-;M207 S2.0 F5000 R-0.025 T2500 Z0.5				; Firmware retraction
 
 ; Axis Limits
 M208 Z0 S1							; Set minimum Z
@@ -58,7 +55,7 @@ M305 P1 B4725 C7.060000e-8					; Set thermistor + ADC parameters for heater 1 (E
 M143 H1 S285							; Set temperature limit for heater 1 to 285C
 
 ; Fans
-M106 P0 S0 I0 F25000 H-1 L0.35 B2.5				; Part Cooling via BerdAir pump. Manual control. Blip time of 2.5s to heat PTC Thermistor
+M106 P0 S0 I0 F500 H-1						; Part Cooling via 2x Delta BFB0412HHA-A. Manual control
 M106 P1 S1 I0 F500 H1 T45					; Hotend Heatsink Fan. Thermostatic control, max RPM at 45C
 
 ; Tools
@@ -67,8 +64,9 @@ G10 P0 X0 Y0 Z0							; Set tool 0 axis offsets
 G10 P0 R0 S0							; Set initial tool 0 active and standby temperatures to 0C
 
 ; Additional Settings
-;M572 D0 S0.1							; Pressure Advance
 M404 N1.75							; Define filament diameter for print monitor
+M207 S1.5 R0 F3600 Z0.1						; Firmware retraction
+;M572 D0 S0.1							; Pressure Advance
 ;M592 D0 A0.07772 B-0.00029					; Nonlinear extrusion. Set parameters for extruder drive 0
 
 ; Miscellaneous
