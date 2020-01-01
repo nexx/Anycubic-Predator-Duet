@@ -15,8 +15,8 @@ M586 P2 S0							; Disable Telnet
 ; Delta Settings
 ;M665 L450.550 R227 H400.0 B185.0				; Pre-calibrated delta values for arms, radius and homed height
 ;M666 X0 Y0 Z0 A0.00 B0.00					; Pre-calibrated delta values for endstops and tilt
-M665 L450.550 R227.885 H406.769 B185.0 X0.335 Y0.340 Z0.000	; Calibrated delta values
-M666 X0.152 Y0.271 Z-0.423 A0.00 B0.00				; Calibrated delta values
+M665 L450.550 R232.006 H408.058 B185.0 X0.403 Y0.394 Z0.000	; Calibrated delta values
+M666 X0.365 Y0.209 Z-0.574 A0.00 B0.00				; Calibrated delta values
 
 ; Drives
 M569 P0 S1							; Drive 0 goes forwards
