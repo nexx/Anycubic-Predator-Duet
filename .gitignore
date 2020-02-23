@@ -2,3 +2,4 @@
 config.g.bak
 resurrect.g
 *.bin
+dwc2settings.json
