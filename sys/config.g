@@ -15,8 +15,8 @@ M586 P2 S0													; Disable Telnet
 ; Delta Settings
 ;M665 L450.550 R227 H400.0 B185.0							; Pre-calibrated delta values for arms, radius and homed height
 ;M666 X0 Y0 Z0 A0.00 B0.00									; Pre-calibrated delta values for endstops and tilt
-M665 L450.550 R232.176 H408.500 B185.0 X0.341 Y0.560 Z0.000	; Calibrated delta values
-M666 X0.364 Y0.457 Z-0.822 A0.00 B0.00						; Calibrated delta values
+M665 L450.550 R235.110 H410.126 B185.0 X0.179 Y0.332 Z0.000	; Calibrated delta values
+M666 X0.350 Y0.342 Z-0.692 A0.00 B0.00						; Calibrated delta values
 
 ; Drives
 M569 P0 S0													; Drive 0 goes backwards
@@ -28,7 +28,7 @@ M350 X16 Y16 Z16 E16 I1										; Configure micro-stepping with interpolation f
 M203 X18000 Y18000 Z18000 E3600								; Set maximum speeds (mm/min)
 M201 X6000 Y6000 Z1500 E3000								; Set accelerations (mm/s^2)
 M566 X3000 Y3000 Z3000 E600									; Set maximum instantaneous speed changes (mm/min)
-M906 X1200 Y1200 Z1200 E500 I25								; Set motor currents (mA) and motor idle factor in per cent
+M906 X1200 Y1200 Z1200 E500 I50								; Set motor currents (mA) and motor idle factor in per cent
 M84 S30														; Set idle timeout
 
 ; Axis Limits
