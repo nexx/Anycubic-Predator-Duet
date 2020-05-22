@@ -16,13 +16,9 @@ Design by Simon Davie (NexxCat)
 Design by Simon Davie (NexxCat)  
 [https://www.thingiverse.com/thing:3688860](https://www.thingiverse.com/thing:3688860)
 
-## PredatorCarriageAdapterForHaydnMagball.stl
-Original Design by Haydn Huntley, Remix by Simon Davie (NexxCat)
-[https://www.thingiverse.com/thing:4079041](https://www.thingiverse.com/thing:4079041)
-
-## PredatorCarriageAdapterForMGN12HRails.stl
+## PredatorMGN12HCarriage*.stl
 Design by Simon Davie (NexxCat)
-Not yet on Thingiverse.
+[https://www.thingiverse.com/thing:4349266](https://www.thingiverse.com/thing:4349266)
 
 ## PredatorFilamentGuide.stl
 Design by Simon Davie (NexxCat)  
